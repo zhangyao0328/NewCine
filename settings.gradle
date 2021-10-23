@@ -1,0 +1,3 @@
+rootProject.name = "NewCine"
+include ':app'
+include ':Baselibrary'
