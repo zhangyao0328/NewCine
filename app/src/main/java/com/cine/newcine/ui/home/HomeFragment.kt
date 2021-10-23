@@ -17,6 +17,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun initFragmentViewModel() {
+//        TODO("Not yet implemented")
     }
 
 
