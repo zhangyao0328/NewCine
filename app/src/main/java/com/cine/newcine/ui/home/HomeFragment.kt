@@ -8,16 +8,26 @@ import com.yao.baselibrary.base.base.BaseFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private var homeVM: HomeViewModel? = null
+
+    override fun initViewModel() {
+        homeVM = getActivityViewModel(HomeViewModel::class.java)
+    }
 
     override fun init(savedInstanceState: Bundle?) {
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        homeViewModel.text.value
+        binding.vm = homeVM
+    }
 
+    override fun observe() {
+        super.observe()
+        homeVM?.articalList?.observe(this, Observer {
+
+            binding.smartRefresh.finishRefresh()
+
+        })
     }
 
     override fun initFragmentViewModel() {
-//        TODO("Not yet implemented")
     }
 
 

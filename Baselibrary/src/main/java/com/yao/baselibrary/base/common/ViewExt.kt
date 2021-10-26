@@ -52,3 +52,11 @@ fun ViewPager.doSelect(select:(Int) -> Unit){
         }
     })
 }
+
+/**
+ * 隐藏刷新加载ui
+ */
+//fun SmartRefreshLayout.smartDismiss() {
+//    finishRefresh(0)
+//    finishLoadMore(0)
+//}

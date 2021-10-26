@@ -4,30 +4,33 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.cine.newcine.MainActivity
+import com.cine.newcine.bean.ArticleListBean
+import com.yao.baselibrary.base.base.vm.BaseViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel : BaseViewModel() {
 
-    val _text = MutableLiveData<String>().apply {
-        value = data()
-    }
-    val text: LiveData<String> = _text
+    //测试文本
+    val _text = MutableLiveData<String>()
+    val username: LiveData<String> = _text
 
-    /**
-     * 用户名
-     */
-    val username = ObservableField<String>().apply {
-        _text.value
-        set("请先登录")
-    }
 
-    fun data(): String {
-        val list = listOf("zy", "wwy", "zl", "sbl", "nrck")
-        var temp = ""
-        for (item in list) {
-            if (item.length > temp.length) {
-                temp = item
-            }
+    //web文章页list
+    val _articalList = MutableLiveData<ArticleListBean>()
+    val articalList : LiveData<ArticleListBean> = _articalList
+
+    fun setText() {
+        viewModelScope.launch {
+            _text.value = data()
         }
-        return temp
+    }
+
+   suspend fun data() = withContext(Dispatchers.Main) {
+        val list = listOf("zy", "wwy", "zl", "sbl", "nrck", "sss999sssss")
+       list.maxByOrNull { fruit: String -> fruit.length }
     }
 }
