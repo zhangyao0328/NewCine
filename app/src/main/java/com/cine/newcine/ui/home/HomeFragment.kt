@@ -3,11 +3,14 @@ package com.cine.newcine.ui.home
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.cine.newcine.common.smartConfig
+import com.cine.newcine.common.smartDismiss
 import com.cine.newcine.databinding.FragmentHomeBinding
 import com.cine.newcine.ui.home.adapter.ArticleAdapter
 import com.yao.baselibrary.base.base.BaseFragment
+import com.yao.baselibrary.base.base.LazyVmFragment
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+class HomeFragment : LazyVmFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private var homeVM: HomeViewModel? = null
     private val adapter by lazy {
@@ -23,12 +26,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun observe() {
-        super.observe()
         homeVM?.articalList?.observe(this, Observer {
-
+            binding.smartRefresh.smartDismiss()
             adapter.submitList(it)
-
         })
+
     }
 
 
@@ -36,12 +38,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
 
-    override fun onResume() {
-        super.onResume()
+    override fun lazyInit() {
+        initView()
+    }
+
+    override fun initView() {
         adapter.apply {
             binding.rvHomelist.adapter = this
         }
-        homeVM?.setText()
+        binding.smartRefresh.smartConfig()
+        binding.smartRefresh.setOnRefreshListener {
+            homeVM?.setText()
+        }
+
+    }
+
+    override fun onClick() {
+        binding.tvTtile.setOnClickListener {
+            binding.smartRefresh.autoRefresh()
+
+        }
     }
 
 

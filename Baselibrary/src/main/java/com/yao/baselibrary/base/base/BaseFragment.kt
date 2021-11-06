@@ -104,6 +104,13 @@ abstract class BaseFragment<VB : ViewBinding>(var inflater: (LayoutInflater, Vie
     }
 
     /**
+     * 初始化view及事件
+     */
+    open fun initView(){
+
+    }
+
+    /**
      * 通过activity获取viewModel，跟随activity生命周期
      */
     protected fun <T:ViewModel?> getActivityViewModel(modelClass: Class<T>) : T{

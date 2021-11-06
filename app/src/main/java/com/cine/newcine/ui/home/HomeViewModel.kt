@@ -27,6 +27,7 @@ class HomeViewModel : BaseViewModel() {
 
     fun setText() {
         viewModelScope.launch {
+
             val list = mutableListOf<ArticleListBean>()
             for (i in 1..12){
                var bean =  ArticleListBean()
@@ -35,6 +36,7 @@ class HomeViewModel : BaseViewModel() {
                 list.add(bean)
                 System.out.println(bean.toString())
             }
+            Thread.sleep(2000)
             _articalList.value =list
         }
     }

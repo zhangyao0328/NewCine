@@ -25,11 +25,12 @@
             <TextView
                 android:id="@+id/tvTtile"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:gravity="center"
-                android:text="@{vm.username}"
+                android:text=" 测试"
                 android:textColor="@color/design_default_color_secondary_variant"
-                android:background="@color/design_default_color_secondary"></TextView>
+                android:background="@color/design_default_color_secondary"
+                ></TextView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHomelist"
