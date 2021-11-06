@@ -88,4 +88,16 @@ class ArticleAdapter(private val context: Context) :
         RecyclerView.ViewHolder(itemView) {
 
     }
+
+    /**
+     * 重新加载数据时必须换一个list集合，否则diff不生效
+     */
+    override fun submitList(list: List<ArticleListBean>?) {
+        super.submitList(if (list == null) mutableListOf() else
+            mutableListOf<ArticleListBean>().apply {
+                addAll(
+                    list
+                )
+            })
+    }
 }

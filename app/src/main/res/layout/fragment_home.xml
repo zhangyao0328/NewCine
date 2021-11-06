@@ -4,24 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.cine.newcine.ui.home.HomeViewModel" />
     </data>
 
 
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <com.scwang.smart.refresh.layout.SmartRefreshLayout
-            android:id="@+id/smartRefresh"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".ui.home.HomeFragment"
-                android:orientation="vertical"
-                >
+            android:layout_height="match_parent"
+            tools:context=".ui.home.HomeFragment"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvTtile"
@@ -30,8 +29,7 @@
                 android:gravity="center"
                 android:text="@{vm.username}"
                 android:textColor="@color/design_default_color_secondary_variant"
-                android:background="@color/design_default_color_secondary"
-                ></TextView>
+                android:background="@color/design_default_color_secondary"></TextView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHomelist"
@@ -39,14 +37,12 @@
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                android:background="@color/design_default_color_error"
-                ></androidx.recyclerview.widget.RecyclerView>
+                android:background="@color/design_default_color_error"></androidx.recyclerview.widget.RecyclerView>
 
 
-            </LinearLayout>
+        </LinearLayout>
 
-        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
-
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
 
 </layout>

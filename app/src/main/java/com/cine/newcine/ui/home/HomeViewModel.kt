@@ -7,8 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cine.newcine.MainActivity
 import com.cine.newcine.bean.ArticleListBean
+import com.cine.newcine.constants.Constants
 import com.yao.baselibrary.base.base.vm.BaseViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -20,17 +22,20 @@ class HomeViewModel : BaseViewModel() {
 
 
     //web文章页list
-    val _articalList = MutableLiveData<ArticleListBean>()
-    val articalList : LiveData<ArticleListBean> = _articalList
+    val _articalList = MutableLiveData<MutableList<ArticleListBean>>()
+    val articalList: LiveData<MutableList<ArticleListBean>> = _articalList
 
     fun setText() {
         viewModelScope.launch {
-            _text.value = data()
+            val list = mutableListOf<ArticleListBean>()
+            for (i in 1..12){
+               var bean =  ArticleListBean()
+                bean.title = "title$i"
+                bean.picUrl = "www.baidu.com"
+                list.add(bean)
+                System.out.println(bean.toString())
+            }
+            _articalList.value =list
         }
-    }
-
-   suspend fun data() = withContext(Dispatchers.Main) {
-        val list = listOf("zy", "wwy", "zl", "sbl", "nrck", "sss999sssss")
-       list.maxByOrNull { fruit: String -> fruit.length }
     }
 }
