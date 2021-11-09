@@ -32,7 +32,6 @@ class HomeViewModel : BaseViewModel() {
             for (i in 1..12){
                var bean =  ArticleListBean()
                 bean.title = "title$i"
-                bean.picUrl = "www.baidu.com"
                 list.add(bean)
                 System.out.println(bean.toString())
             }

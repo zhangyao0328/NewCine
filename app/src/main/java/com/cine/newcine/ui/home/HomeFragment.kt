@@ -3,6 +3,7 @@ package com.cine.newcine.ui.home
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.cine.newcine.common.px
 import com.cine.newcine.common.smartConfig
 import com.cine.newcine.common.smartDismiss
 import com.cine.newcine.databinding.FragmentHomeBinding
@@ -50,13 +51,14 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         binding.smartRefresh.setOnRefreshListener {
             homeVM?.setText()
         }
-
+        binding.smartRefresh.setOnLoadMoreListener {
+            homeVM?.setText()
+        }
     }
 
     override fun onClick() {
         binding.tvTtile.setOnClickListener {
             binding.smartRefresh.autoRefresh()
-
         }
     }
 

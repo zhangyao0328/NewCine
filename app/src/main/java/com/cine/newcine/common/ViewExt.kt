@@ -1,5 +1,8 @@
 package com.cine.newcine.common
 
+import android.content.res.Resources
+import android.util.TypedValue
+import com.bumptech.glide.load.engine.Resource
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 
 /**
@@ -11,7 +14,7 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout
 /**
  * 隐藏刷新新加载ui
  */
-fun SmartRefreshLayout.smartDismiss(){
+fun SmartRefreshLayout.smartDismiss() {
     finishRefresh(0)
     finishLoadMore(0)
 }
@@ -29,3 +32,11 @@ fun SmartRefreshLayout.smartConfig() {
     //滚动回弹
     setEnableOverScrollDrag(true)
 }
+
+
+val Float.px: Float
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this,
+        Resources.getSystem().displayMetrics
+    )

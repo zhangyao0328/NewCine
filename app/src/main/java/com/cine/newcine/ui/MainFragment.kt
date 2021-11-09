@@ -74,6 +74,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     }
 
 
+
     override fun initFragmentViewModel() {
     }
 

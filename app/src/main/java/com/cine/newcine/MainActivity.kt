@@ -9,5 +9,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return true
+    }
+
 
 }

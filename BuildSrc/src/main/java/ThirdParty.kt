@@ -13,7 +13,7 @@ object ThirdParty {
         //核心必须依赖
         const val refreshLayoutKernel = "com.scwang.smart:refresh-layout-kernel:$version"
         //金典刷新头
-        const val refreshHeaderClassics = "com.scwang.smart:refresh-layout-kernel:$version"
+        const val refreshHeaderClassics = "com.scwang.smart:refresh-header-classics:$version"
     }
 
     //RecyclerViewAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
