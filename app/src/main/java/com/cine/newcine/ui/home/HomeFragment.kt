@@ -2,13 +2,10 @@ package com.cine.newcine.ui.home
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.cine.newcine.common.px
 import com.cine.newcine.common.smartConfig
 import com.cine.newcine.common.smartDismiss
 import com.cine.newcine.databinding.FragmentHomeBinding
 import com.cine.newcine.ui.home.adapter.ArticleAdapter
-import com.yao.baselibrary.base.base.BaseFragment
 import com.yao.baselibrary.base.base.LazyVmFragment
 
 class HomeFragment : LazyVmFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
@@ -41,6 +38,7 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(FragmentHomeBinding::in
 
     override fun lazyInit() {
         initView()
+        loadData()
     }
 
     override fun initView() {
@@ -49,11 +47,15 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         }
         binding.smartRefresh.smartConfig()
         binding.smartRefresh.setOnRefreshListener {
-            homeVM?.setText()
+            homeVM?.getArticle()
         }
         binding.smartRefresh.setOnLoadMoreListener {
-            homeVM?.setText()
+            homeVM?.getArticle()
         }
+    }
+
+    override fun loadData() {
+        homeVM?.getArticle()
     }
 
     override fun onClick() {

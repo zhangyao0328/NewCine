@@ -11,4 +11,10 @@ dependencies {
     api(Android.appcompat)
     api(Android.lifecycle.viewModelKtx)
     api(Android.material)
+    api(ThirdParty.retrofit.retrofit)
+    api(ThirdParty.retrofit.scalars)
+    api(ThirdParty.retrofit.gson)
+    debugApi(ThirdParty.leakCanary.leakCanary)
+    api(ThirdParty.blockCanary.blockCanary)
+    api(ThirdParty.cookieJar)
 }

@@ -8,6 +8,10 @@ package com.cine.newcine.constants
  */
 object Constants {
     /**
+     * 网络请求默认超时时间
+     */
+    const val DEFAULT_TIMEOUT = 10000
+    /**
      * 多布局中带图片
      */
     const val ITEM_ARTICLE = 10

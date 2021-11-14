@@ -16,4 +16,4 @@ local.properties
 
 *.apk
 /output
-.BuildSrc/build/
+/BuildSrc/build

@@ -25,7 +25,5 @@ dependencies {
     api(ThirdParty.recyclerViewAdapter.baseRecyclerViewAdapterHelper)
     api(ThirdParty.glide.glide)
     api(ThirdParty.glide.transformations)
-    debugApi(ThirdParty.leakCanary.leakCanary)
-
 
 }

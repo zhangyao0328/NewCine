@@ -27,16 +27,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             //是否开启调试模式
             debuggable = false
+            buildConfigField 'String', 'BASE_URL','"https://www.wanandroid.com"'
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             debuggable = true
+            buildConfigField 'String', 'BASE_URL','"https://www.wanandroid.com"'
         }
         local {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             debuggable = true
+            buildConfigField 'String', 'BASE_URL','"https://www.wanandroid.com"'
         }
     }
 

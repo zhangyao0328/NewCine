@@ -16,6 +16,8 @@ import kotlinx.coroutines.withContext
 
 class HomeViewModel : BaseViewModel() {
 
+    private val homeRepo by lazy { HomeRepo() }
+
     //测试文本
     val _text = MutableLiveData<String>()
     val username: LiveData<String> = _text
@@ -25,18 +27,14 @@ class HomeViewModel : BaseViewModel() {
     val _articalList = MutableLiveData<MutableList<ArticleListBean>>()
     val articalList: LiveData<MutableList<ArticleListBean>> = _articalList
 
-    fun setText() {
-        viewModelScope.launch {
-
+    fun getArticle() {
+        launch {
             val list = mutableListOf<ArticleListBean>()
-            for (i in 1..12){
-               var bean =  ArticleListBean()
-                bean.title = "title$i"
-                list.add(bean)
-                System.out.println(bean.toString())
+            val articles = viewModelScope.async {
+                homeRepo.getArticles()
             }
-            Thread.sleep(2000)
-            _articalList.value =list
+            list.addAll(articles.await())
+            _articalList.value = list
         }
     }
 }

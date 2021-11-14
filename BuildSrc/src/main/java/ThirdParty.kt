@@ -6,6 +6,9 @@
 @Suppress("SpellCheckingInspection")
 object ThirdParty {
 
+    //okhttp cookie持久化
+    const val cookieJar = "com.github.franmontiel:PersistentCookieJar:v1.0.1"
+
     //下拉刷新 https://github.com/scwang90/SmartRefreshLayout
     val smartRefreshLayout = Smart
     object Smart{
@@ -34,6 +37,20 @@ object ThirdParty {
     object Glide {
         const val glide = "com.github.bumptech.glide:glide:4.11.0"
         const val transformations = "jp.wasabeef:glide-transformations:4.1.0"
+    }
+
+    val retrofit = Retrofit
+    object Retrofit {
+        private const val retrofit_version = "2.9.0"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$retrofit_version"
+        const val scalars = "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+        const val gson = "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    }
+
+    val blockCanary = BlockCanary
+    object BlockCanary {
+        private const val blockCanary_version = "1.5.0"
+        const val blockCanary = "com.github.markzhai:blockcanary-android:$blockCanary_version"
     }
 
 
