@@ -2,6 +2,7 @@ package com.cine.newcine.http
 
 import com.cine.newcine.bean.ArticleBean
 import retrofit2.http.GET
+import retrofit2.http.Headers
 
 interface ApiService {
 

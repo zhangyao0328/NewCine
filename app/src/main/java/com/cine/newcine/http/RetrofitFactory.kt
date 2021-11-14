@@ -35,11 +35,13 @@ object RetrofitFactory {
                 )
                 .addInterceptor(getLogInterceptor())
                 .cookieJar(getCookie())
+                //添加读取本地缓存拦截器
+//                .addNetworkInterceptor(getCacheData())
                 .cache(getCache())
         }
 
 
-    fun factory():Retrofit{
+    fun factory(): Retrofit {
         return Retrofit.Builder()
             .client(onHttpClientBuilder.build())
             .addConverterFactory(GsonConverterFactory.create())
@@ -77,6 +79,24 @@ object RetrofitFactory {
             File(getContext().cacheDir, "cache"),
             1024 * 1024 * 100
         )
+    }
+
+    /**
+     * 本地缓存读取
+     * 此方法无需服务端任何操作，适用于服务器端没有其他缓存策略，
+     * 如果服务器端有增加的缓存策略，以下不适用
+     */
+    private fun getCacheData(): Interceptor {
+        //缓存时间60s
+        val maxAge = 60
+        return Interceptor { chain ->
+            chain.proceed(chain.request())
+                .newBuilder()
+                //清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
+                .removeHeader("Pragma")
+                .header("Cache-Control", "public ,max-age=" + maxAge)
+                .build()
+        }
     }
 
 
