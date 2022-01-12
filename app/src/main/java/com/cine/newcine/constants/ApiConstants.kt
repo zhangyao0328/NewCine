@@ -4,5 +4,5 @@ import com.cine.newcine.BuildConfig
 
 object ApiConstants {
 
-    const val BASH_URL = BuildConfig.BASE_URL
+     var BASH_URL:String= "https://www.wanandroid.com"
 }

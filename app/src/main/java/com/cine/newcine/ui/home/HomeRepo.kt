@@ -17,7 +17,7 @@ class HomeRepo : BaseRepository() {
             .data()
             .let {
                 ArticleListBean.trans(it)
-            }?: mutableListOf()
+            }
     }
 
 
