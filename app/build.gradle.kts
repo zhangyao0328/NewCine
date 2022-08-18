@@ -34,34 +34,6 @@ android {
         dataBinding = true
         viewBinding = true
     }
-
-//    buildTypes {
-//        getByName("debug") {
-//            isMinifyEnabled = false
-//            proguardFiles(
-//                "proguard-android-optimize.txt",
-//                "proguard-rules.pro"
-//            )
-////            buildConfigField("String", "BASE_URL", "www.wanandroid.com")
-//        }
-//        getByName("release") {
-//            isMinifyEnabled = false
-//            proguardFiles(
-//                "proguard-android-optimize.txt",
-//                "proguard-rules.pro"
-//            )
-////            buildConfigField("String", "BASE_URL", "www.wanandroid.com")
-//        }
-//        create("staging") {
-//            isMinifyEnabled = false
-//            proguardFiles(
-//                "proguard-android-optimize.txt",
-//                "proguard-rules.pro"
-//            )
-////            buildConfigField("String", "BASE_URL", "www.wanandroid.com")
-//        }
-//    }
-
 }
 
 dependencies {
@@ -76,5 +48,5 @@ dependencies {
     api(ThirdParty.recyclerViewAdapter.baseRecyclerViewAdapterHelper)
     api(ThirdParty.glide.glide)
     api(ThirdParty.glide.transformations)
-
+    implementation ("cn.com.postrock.yaolib:yaolib:1.0.0")
 }

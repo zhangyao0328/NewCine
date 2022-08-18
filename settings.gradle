@@ -2,3 +2,4 @@ rootProject.name = "NewCine"
 include ':app'
 include ':Baselibrary'
 includeBuild("versionPlugin")
+include ':yaolibrary'

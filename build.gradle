@@ -1,10 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.5.0"
+
+    ext {
+        ext.kotlin_version = "1.5.0"
+        ANDROID_SDK_PATH = "/Users/zhangyao/Library/Android/sdk/extras/android/m2repository"
+    }
+
     repositories {
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases" }
+        maven { url "https://jitpack.io" }
         google()
         mavenCentral()
-        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
@@ -17,10 +25,15 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url "file://$ANDROID_SDK_PATH"
+        }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases" }
+        maven { url "https://jitpack.io" }
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
-        maven { url "https://jitpack.io" }
     }
 }
 

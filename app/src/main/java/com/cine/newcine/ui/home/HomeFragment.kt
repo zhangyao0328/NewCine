@@ -39,12 +39,12 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(FragmentHomeBinding::in
     override fun lazyInit() {
         initView()
         loadData()
+
     }
 
     override fun initView() {
         adapter.apply {
             binding.rvHomelist.adapter = this
-
             binding.smartRefresh.smartConfig()
             binding.smartRefresh.setOnRefreshListener {
                 homeVM?.getArticle()

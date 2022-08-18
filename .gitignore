@@ -17,3 +17,6 @@ local.properties
 *.apk
 /output
 /BuildSrc/build
+
+
+gradle.properties
